@@ -1,6 +1,10 @@
 <x-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
+    <h1 class="fw-bold">Please log ln to access your account.</h1>
+    <br>
+    <hr>
+    <br>
 
     <form method="POST" action="{{ route('login') }}">
         @csrf

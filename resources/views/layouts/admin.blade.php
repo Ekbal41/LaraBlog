@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{{ asset('plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.min.css') }}">
 
    
 </head>
@@ -196,14 +197,22 @@
 
                         </li>
 
-                        <li class="nav-header">EXAMPLES</li>
+                        <li class="nav-header">ADMINISTRATION</li>
                         
                         
                         <li class="nav-item">
                             <a href="{{ route('categories.index') }}" class="nav-link  {{ (request()->routeIs('categories.index')) ? 'active' : '' }} " >
-                                <i class="bi bi-tags"></i>
+                                <i class="bi bi-tags-fill"></i>
                                 <p>
                                     Categories
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('posts.index') }}" class="nav-link  {{ (request()->routeIs('posts.index')) ? 'active' : '' }} " >
+                                <i class="bi bi-sticky-fill"></i>
+                                <p>
+                                    Posts
                                 </p>
                             </a>
                         </li>
@@ -321,6 +330,27 @@
             });
         });
     </script>
+    <script src="{{ asset('plugins/summernote/summernote-bs4.min.js') }}"></script>
+    <script>
+        $(function () {
+          // Summernote
+          $('#summernote').summernote(
+            {
+                height: 300,
+                minHeight: null,
+                maxHeight: null,
+                focus: false
+            }
+          )
+          
+      
+          // CodeMirror
+          CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+            mode: "htmlmixed",
+            theme: "monokai"
+          });
+        })
+      </script>
 
 
     <!-- Bootstrap -->

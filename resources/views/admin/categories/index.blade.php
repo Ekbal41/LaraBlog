@@ -19,7 +19,7 @@
 
     <div class="card w-100">
         <div class="card-header ">
-            <a href="{{ route('categories.create') }}" class="card-title float-right btn btn-primary rounded-pill">Add
+            <a href="{{ route('categories.create') }}" class="btn btn-primary float-right">Add
                 new</a>
         </div>
         <!-- /.card-header -->

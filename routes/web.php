@@ -20,6 +20,7 @@ Route::get('/', function () {
 Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('/', [App\Http\Controllers\Admin\AdminController::class, 'index'])->name('admin.home');
     Route::resource('categories', App\Http\Controllers\Admin\CategoryController::class);
+    Route::resource('posts', App\Http\Controllers\Admin\PostController::class);
 });
 
 Route::get('/dashboard', function () {

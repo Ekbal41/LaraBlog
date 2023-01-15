@@ -5,12 +5,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Posts <i class="bi bi-sticky-fill"></i>
+                    <h1>Categories <i class="bi bi-tags"></i></h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{route('admin.home')}}">Home</a></li>
-                        <li class="breadcrumb-item active">Posts </li>
+                        <li class="breadcrumb-item active">Categories </li>
                     </ol>
                 </div>
             </div>
@@ -19,7 +19,7 @@
 
     <div class="card w-100">
         <div class="card-header ">
-            <a href="{{ route('posts.create') }}" class="btn btn-primary float-right">Add
+            <a href="{{ route('messages.create') }}" class="btn btn-primary float-right">Add
                 new</a>
         </div>
         <!-- /.card-header -->
@@ -27,13 +27,11 @@
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <th style="width:5%">SN</th>
-                        <th>Image</th>
-                        <th>Title</th>
-                        <th>Author</th>
-                        <th>Category</th>
-                        <th>Status</th>
-                        <th>Action</th>
+                        <th width="10%">S Number</th>
+                        <th>Sender Name </th>
+                        <th>Sender Email </th>
+                        <th>Time</th>
+                        <th>Actions</th>
 
                     </tr>
                 </thead>
@@ -41,25 +39,18 @@
                     @foreach ($datas as $data)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td><img src="{{ asset('storage/' . $data->image) }}" height="50px", width="50px" /></td>
-                            <td>{{ $data->title }}</td>
-                            <td>{{ $data->author }}</td>
-                            <td>{{ $data->category->name }}</td>
-                            <td>
-                                @if ($data->published == true)
-                                    <span class="badge bg-success">Published</span>
-                                @else
-                                    <span class="badge bg-danger">Unpublished</span>
-                                @endif
-                            
+
+                            <td>{{ $data->name }}</td>
+                            <td>{{ $data->email }}</td>
+                            <td>{{ $data->created_at }}</td>
                             <td>
                                 
-                                <form action="{{ route('posts.destroy', $data->id) }}" method="POST">
+                                <form action="{{ route('messages.destroy', $data->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger float-right ml-2">Delete</button>
                                 </form>
-                                <a href="{{ route('posts.edit', $data->id) }}"
+                                <a href="{{ route('messages.edit', $data->id) }}"
                                     class="btn btn-primary float-right ml-2">Edit</a>
                                 <a href="{{route('admin.home')}}"
                                     class="btn btn-success float-right ml-2">Show</a>
@@ -71,13 +62,12 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <th>SN</th>
-                        <th>Image</th>
-                        <th>Title</th>
-                        <th>Author</th>
-                        <th>Category</th>
-                        <th>Status</th>
-                        <th>Action</th>
+                        
+                        <th>S Number</th>
+                        <th>Sender Name </th>
+                        <th>Sender Email </th>
+                        <th>Time</th>
+                        <th>Actions</th>
 
                     </tr>
                 </tfoot>

@@ -4,7 +4,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">Dashboard</h1>
+          <h4 class="m-0">Welcome to dashboard</h4>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -19,67 +19,88 @@
 
   <!-- Main content -->
   <section class="content">
+    
     <div class="container-fluid">
       <!-- Small boxes (Stat box) -->
       <div class="row">
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-info">
-            <div class="inner">
-              <h3>150</h3>
+        <div class="col-md-3 col-sm-6 col-12">
+          <div class="info-box bg-gradient-info">
+            <span class="info-box-icon"><i class="far fa-bookmark"></i></span>
 
-              <p>New Orders</p>
+            <div class="info-box-content">
+              <span class="info-box-text">Bookmarks</span>
+              <span class="info-box-number">41,410</span>
+
+              <div class="progress">
+                <div class="progress-bar" style="width: 70%"></div>
+              </div>
+              <span class="progress-description">
+                70% Increase in 30 Days
+              </span>
             </div>
-            <div class="icon">
-              <i class="ion ion-bag"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <!-- /.info-box-content -->
           </div>
+          <!-- /.info-box -->
         </div>
         <!-- ./col -->
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-success">
-            <div class="inner">
-              <h3>53<sup style="font-size: 20px">%</sup></h3>
+        <div class="col-md-3 col-sm-6 col-12">
+          <div class="info-box bg-gradient-info">
+            <span class="info-box-icon"><i class="far fa-bookmark"></i></span>
 
-              <p>Bounce Rate</p>
+            <div class="info-box-content">
+              <span class="info-box-text">Bookmarks</span>
+              <span class="info-box-number">41,410</span>
+
+              <div class="progress">
+                <div class="progress-bar" style="width: 70%"></div>
+              </div>
+              <span class="progress-description">
+                70% Increase in 30 Days
+              </span>
             </div>
-            <div class="icon">
-              <i class="ion ion-stats-bars"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <!-- /.info-box-content -->
           </div>
+          <!-- /.info-box -->
         </div>
         <!-- ./col -->
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-warning">
-            <div class="inner">
-              <h3>44</h3>
+        <div class="col-md-3 col-sm-6 col-12">
+          <div class="info-box bg-gradient-info">
+            <span class="info-box-icon"><i class="far fa-bookmark"></i></span>
 
-              <p>User Registrations</p>
+            <div class="info-box-content">
+              <span class="info-box-text">Bookmarks</span>
+              <span class="info-box-number">41,410</span>
+
+              <div class="progress">
+                <div class="progress-bar" style="width: 70%"></div>
+              </div>
+              <span class="progress-description">
+                70% Increase in 30 Days
+              </span>
             </div>
-            <div class="icon">
-              <i class="ion ion-person-add"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <!-- /.info-box-content -->
           </div>
+          <!-- /.info-box -->
         </div>
         <!-- ./col -->
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-danger">
-            <div class="inner">
-              <h3>65</h3>
+        <div class="col-md-3 col-sm-6 col-12">
+          <div class="info-box bg-gradient-info">
+            <span class="info-box-icon"><i class="far fa-bookmark"></i></span>
 
-              <p>Unique Visitors</p>
+            <div class="info-box-content">
+              <span class="info-box-text">Bookmarks</span>
+              <span class="info-box-number">41,410</span>
+
+              <div class="progress">
+                <div class="progress-bar" style="width: 70%"></div>
+              </div>
+              <span class="progress-description">
+                70% Increase in 30 Days
+              </span>
             </div>
-            <div class="icon">
-              <i class="ion ion-pie-graph"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <!-- /.info-box-content -->
           </div>
+          <!-- /.info-box -->
         </div>
         <!-- ./col -->
       </div>

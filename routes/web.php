@@ -21,6 +21,13 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('/', [App\Http\Controllers\Admin\AdminController::class, 'index'])->name('admin.home');
     Route::resource('categories', App\Http\Controllers\Admin\CategoryController::class);
     Route::resource('posts', App\Http\Controllers\Admin\PostController::class);
+    Route::resource('messages', App\Http\Controllers\Admin\MessageController::class);
+    Route::get('navbar', [App\Http\Controllers\Admin\SettingController::class, 'navbar'])->name('setting.navbar');
+    Route::get('footer', [App\Http\Controllers\Admin\SettingController::class, 'footer'])->name('setting.footer');
+    Route::get('about', [App\Http\Controllers\Admin\SettingController::class, 'about'])->name('setting.about');
+    Route::post('nnavbar', [App\Http\Controllers\Admin\SettingController::class, 'nnavbar'])->name('setting.nnavbar');
+    Route::post('nfooter', [App\Http\Controllers\Admin\SettingController::class, 'nfooter'])->name('setting.nfooter');
+    Route::post('nabout', [App\Http\Controllers\Admin\SettingController::class, 'nabout'])->name('setting.nabout');
 });
 
 Route::get('/dashboard', function () {

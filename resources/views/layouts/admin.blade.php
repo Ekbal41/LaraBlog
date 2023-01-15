@@ -14,7 +14,7 @@
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="{{ asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
     <!-- Theme style -->
-    
+
     <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.min.css') }}">
 
-   
+
 </head>
 
 <body class="hold-transition  sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
@@ -140,7 +140,7 @@
                         <i class="fas fa-expand-arrows-alt"></i>
                     </a>
                 </li>
-                
+
             </ul>
         </nav>
         <!-- /.navbar -->
@@ -148,9 +148,14 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link">
-                <img src="{{ asset('dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
+            <a href="index3.html" class="brand-link "
+            
+            >
+
+                <img src="{{ asset('dist/img/pen.svg') }}" alt="AdminLTE Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
+
+
                 <span class="brand-text font-weight-light">LaraBlog</span>
             </a>
 
@@ -159,11 +164,11 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2"
+                        <img src="{{ asset('dist/img/avatar.png') }}" class="img-circle elevation-2"
                             alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Alexander Pierce</a>
+                        <a href="#" class="d-block">Admin</a>
                     </div>
                 </div>
 
@@ -187,7 +192,8 @@
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item menu-open">
-                            <a href="{{route('admin.home')}}" class="nav-link  {{ (request()->routeIs('admin.home')) ? 'active' : '' }} ">
+                            <a href="{{ route('admin.home') }}"
+                                class="nav-link  {{ request()->routeIs('admin.home') ? 'active' : '' }} ">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
@@ -198,10 +204,11 @@
                         </li>
 
                         <li class="nav-header">ADMINISTRATION</li>
-                        
-                        
+
+
                         <li class="nav-item">
-                            <a href="{{ route('categories.index') }}" class="nav-link  {{ (request()->routeIs('categories.index')) ? 'active' : '' }} " >
+                            <a href="{{ route('categories.index') }}"
+                                class="nav-link  {{ request()->routeIs('categories.index') ? 'active' : '' }} ">
                                 <i class="bi bi-tags-fill"></i>
                                 <p>
                                     Categories
@@ -209,7 +216,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('posts.index') }}" class="nav-link  {{ (request()->routeIs('posts.index')) ? 'active' : '' }} " >
+                            <a href="{{ route('posts.index') }}"
+                                class="nav-link  {{ request()->routeIs('posts.index') ? 'active' : '' }} ">
                                 <i class="bi bi-sticky-fill"></i>
                                 <p>
                                     Posts
@@ -217,49 +225,46 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon far fa-envelope"></i>
+                            <a href="{{ route('messages.index') }}"
+                                class="nav-link  {{ request()->routeIs('messages.index') ? 'active' : '' }} ">
+                                <i class="bi bi-envelope-fill"></i>
                                 <p>
-                                    Mailbox
+                                    Messages
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-gear-fill"></i>
+                                <p>
+                                    Settings
                                     <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="pages/mailbox/mailbox.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Inbox</p>
+                                    <a href="{{ route('setting.navbar') }}" class="nav-link">
+                                        <i class="bi bi-segmented-nav"></i>
+                                        <p>Header</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="pages/mailbox/compose.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Compose</p>
+                                    <a href="{{ route('setting.footer') }}" class="nav-link">
+                                        <i class="bi bi-code"></i>
+                                        <p>Footer</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="pages/mailbox/read-mail.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Read</p>
+                                    <a href="{{ route('setting.about') }}" class="nav-link">
+                                        <i class="bi bi-file-earmark-person"></i>
+                                        <p>About Page</p>
                                     </a>
                                 </li>
                             </ul>
                         </li>
+
+
                         
-                        
-                        <li class="nav-header">SETTINGS</li>
-                        <li class="nav-item">
-                            <a href="iframe.html" class="nav-link">
-                                <i class="nav-icon fas fa-ellipsis-h"></i>
-                                <p>Tabbed</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="https://adminlte.io/docs/3.1/" class="nav-link">
-                                <i class="nav-icon fas fa-file"></i>
-                                <p>Documentation</p>
-                            </a>
-                        </li>
 
                     </ul>
                 </nav>
@@ -281,10 +286,10 @@
 
         <!-- Main Footer -->
         <footer class="main-footer">
-            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+            <strong>Copyright &copy; 2022-2023 <a href="/">LaraBlog</a>.</strong>
             All rights reserved.
             <div class="float-right d-none d-sm-inline-block">
-                <b>Version</b> 3.2.0
+                <b>Version</b> 1.0.0
             </div>
         </footer>
     </div>
@@ -332,25 +337,23 @@
     </script>
     <script src="{{ asset('plugins/summernote/summernote-bs4.min.js') }}"></script>
     <script>
-        $(function () {
-          // Summernote
-          $('#summernote').summernote(
-            {
+        $(function() {
+            // Summernote
+            $('#summernote').summernote({
                 height: 300,
                 minHeight: null,
                 maxHeight: null,
                 focus: false
-            }
-          )
-          
-      
-          // CodeMirror
-          CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
-            mode: "htmlmixed",
-            theme: "monokai"
-          });
+            })
+
+
+            // CodeMirror
+            CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+                mode: "htmlmixed",
+                theme: "monokai"
+            });
         })
-      </script>
+    </script>
 
 
     <!-- Bootstrap -->

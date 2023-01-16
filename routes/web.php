@@ -14,9 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [App\Http\Controllers\FrontendController::class, 'home'])->name('home');
+Route::get('/post/{slug}', [App\Http\Controllers\FrontendController::class, 'singlepost'])->name('singlepost');
+Route::post('/search', [App\Http\Controllers\FrontendController::class, 'search'])->name('search');
+Route::get('/reso', [App\Http\Controllers\FrontendController::class, 'reso'])->name('reso');
+Route::get('/design', [App\Http\Controllers\FrontendController::class, 'design'])->name('design');
+
+
+
 Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('/', [App\Http\Controllers\Admin\AdminController::class, 'index'])->name('admin.home');
     Route::resource('categories', App\Http\Controllers\Admin\CategoryController::class);

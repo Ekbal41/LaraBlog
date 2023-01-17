@@ -1,16 +1,35 @@
 @extends('layouts.frontend')
 @section('content')
 <!-- header begin -->
-<header class="page-head ">
-    <div class="header-wrapper text-center">
+<header class="page-head">
+    <div class="">
+        <img class="img-responsive center-block" src="{{ asset('theme/img/web.png') }}" alt="One Page Web Hosting Review"
+            Style="
+        width: 100%;
+        height: 100px;
+        object-fit: cover;
+        opacity: 0.5;
+        border: 1px solid #B77B3C;
+        top: 0;
+        left: 0;
+        z-index: -1;
+   
+   ">
         <div class="container">
             <div class="row">
-                <div class="col-md-8 col-md-offset-2 ">
-                    <!--set background image-->
-                   
-                    <h1>Design Inspiration</h1>
+                <div class="col-md-12"
+                    style="
+            position: absolute;
+            top: 100px;
+            left: 500px;
+            z-index: 1;
+            color: #B77B3C;
+            
+            ">
+                    <h1 class="page-title">ROSOURSE INSPIRATION</h1>
                 </div>
             </div>
+
         </div> <!-- /.container -->
     </div> <!-- /.header-wrapper -->
 </header> <!-- /.page-head (header end) -->

@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="{{ asset('theme/css/animate.css') }}">
     <link rel="stylesheet" href="{{ asset('theme/css/style.css') }}">
 
- 
+
 </head>
 
 <body class="">
@@ -41,8 +41,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">
-                    <img src="{{ asset('theme/img/logo.png') }}" alt="Site Logo">
+                <a class="navbar-brand" href="/">
+                    <p
+                        style="color: rgb(183, 178, 178); font-size: 20px; font-weight: 700; margin-top: 10px; margin-left: 10px; ">
+                        {{ App\Models\Navbar::first()->site_name }}</p>
+
                 </a>
             </div>
 
@@ -52,10 +55,33 @@
                     <li class=" {{ request()->routeIs('home') ? 'active' : '' }}"><a
                             href="{{ route('home') }}">Home</span></a></li>
 
-                            <li class=" {{ request()->routeIs('reso') ? 'active' : '' }}"><a
-                                href="{{ route('reso') }}">Resource</span></a></li>
-                                <li class=" {{ request()->routeIs('design') ? 'active' : '' }}"><a
-                                    href="{{ route('design') }}">Design Resource</span></a></li>
+                    <li class=" {{ request()->routeIs('reso') ? 'active' : '' }}"><a
+                            href="{{ route('reso') }}">Resource</span></a></li>
+                    <li class=" {{ request()->routeIs('design') ? 'active' : '' }}"><a
+                            href="{{ route('design') }}">Inspiration</span></a></li>
+                    <!--show logout option if user is logged in-->
+                    @auth
+                        <li class=" {{ request()->routeIs('dashboard') ? 'active' : '' }}"><a
+                                href="{{ route('dashboard') }}">Dashboard</span></a></li>
+
+                        <li class=" {{ request()->routeIs('logout') ? 'active' : '' }}">
+                            <a
+                                href="{{ route('logout') }}">Logout</span></a>
+                        </li>
+                    @endauth
+                    <!--show login option if user is not logged in-->
+                    @guest
+                        <li class=" {{ request()->routeIs('login') ? 'active' : '' }}"><a
+                                href="{{ route('login') }}">Login</span></a></li>
+                        <li class=" {{ request()->routeIs('register') ? 'active' : '' }}"><a
+                                href="{{ route('register') }}">Register</span></a></li>
+                    @endguest
+
+                    <!--if admin show admin link-->
+                    @if (Auth::user() && Auth::user()->is_admin == '1')
+                        <li class=" {{ request()->routeIs('admin') ? 'active' : '' }}"><a
+                                href="{{ route('admin.home') }}">Admin</span></a></li>
+                    @endif
                 </ul>
             </div><!-- end of /.navbar-collapse -->
         </div><!-- end of /.container -->
@@ -72,10 +98,16 @@
                         <div class="search-widget ">
                             <form action={{ route('search') }} method="POST">
                                 @csrf
-                                <div class="input-group margin-bottom-sm">
-                                    <input class="form-control" style="width: 340px" name='search' type="text"
-                                        placeholder="Search here">
-                                    <button type='submit' class=" btn btn-primary btn-block">
+                                <div class="input-group margin-bottom-sm"
+                                    style="
+                                display: flex;
+                                
+                                ">
+                                    <input class="form-control" name='search' type="text" placeholder="Search here">
+                                    <button type='submit' class=" btn btn-primary"
+                                        style="
+                                    background-color:  #B77B3C;
+                                    ">
                                         <i class="fa fa-search fa-fw"></i>
                                     </button>
                                 </div>
@@ -83,25 +115,14 @@
                         </div>
 
                         <a href="http://themewagon.com/" class="template-images">
-                            <img class="img-responsive" src="{{ asset('theme/img/store1.png') }}" alt="Template Store">
+                            <img class="img-responsive" src="{{ asset('theme/img/man.jpg') }}" alt="Template Store">
                             <div class="overlay"></div>
                         </a>
 
-                        <!-- subscribe form -->
-                        <div class="subscribe-widget">
-                            <h4 class="text-capitalize text-center">
-                                get recent update by email
-                            </h4>
-                            <div class="input-group margin-bottom-sm">
-                                <input class="form-control" type="text" placeholder="Your Email">
-                                <a href="#" class="input-group-addon">
-                                    <i class="fa fa-paper-plane fa-fw"></i>
-                                </a>
-                            </div>
-                        </div>
+
 
                         <!-- sidebar share button -->
-                        <div class="share-widget hidden-xs hidden-sm">
+                        <div class="share-widget hidden-xs hidden-sm " style="margin-top: 30px;">
                             <ul class="social-share text-center">
                                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                                 <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
@@ -125,7 +146,7 @@
         <div class="container ">
             <div class="row">
                 <!-- copyright -->
-                <div class="col-md-4 col-sm-4">
+                <div class="col-md-4 col-sm-4" style="margin-top: 10px;">
                     Copyright &copy; <?php echo date('Y'); ?> <a href="#"
                         style="margin-left: 4px;">{{ App\Models\Footer::first()->copy_right }}</a>
 

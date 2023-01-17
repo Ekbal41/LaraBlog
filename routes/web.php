@@ -19,10 +19,12 @@ Route::get('/post/{slug}', [App\Http\Controllers\FrontendController::class, 'sin
 Route::post('/search', [App\Http\Controllers\FrontendController::class, 'search'])->name('search');
 Route::get('/reso', [App\Http\Controllers\FrontendController::class, 'reso'])->name('reso');
 Route::get('/design', [App\Http\Controllers\FrontendController::class, 'design'])->name('design');
+Route::get('/logout', [App\Http\Controllers\FrontendController::class, 'logout'])->name('logout');
+Route::get('/singleins', [App\Http\Controllers\FrontendController::class, 'singleins'])->name('singleins');
 
 
 
-Route::middleware('auth')->prefix('admin')->group(function () {
+Route::middleware('auth', 'admin')->prefix('admin')->group(function () {
     Route::get('/', [App\Http\Controllers\Admin\AdminController::class, 'index'])->name('admin.home');
     Route::resource('categories', App\Http\Controllers\Admin\CategoryController::class);
     Route::resource('posts', App\Http\Controllers\Admin\PostController::class);

@@ -2,6 +2,12 @@
 @section('content')
     <!-- blog-contents -->
     <section class="col-md-8">
+        <!--if message show message-->
+        @if (session('message'))
+            <div class="alert alert-success">
+                {{ session('message') }}
+            </div>
+        @endif
         @foreach ($posts as $post)
             <article class="blog-item">
                 <div class="row">

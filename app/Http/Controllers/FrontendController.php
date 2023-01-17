@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+//import Auth
+use Illuminate\Support\Facades\Auth;
 
 
 class FrontendController extends Controller
@@ -35,4 +37,15 @@ class FrontendController extends Controller
     public function design(){
         return view('frontend.design');
     }
+
+    public function logout(){
+        Auth::logout();
+        return redirect()->route('home');
+    }
+
+    public function singleins(){
+        return view('frontend.singleins');
+    }
+
+
 }

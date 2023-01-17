@@ -14,6 +14,8 @@
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="{{ asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
     <!-- Theme style -->
+    <!-- fullCalendar -->
+    <link rel="stylesheet" href="{{ asset('plugins/fullcalendar/main.css') }}">
 
     <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
@@ -39,9 +41,13 @@
                             class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="{{route('home')}}" class="nav-link">View Website</a>
+                    <a href="{{ route('home') }}" class="nav-link">View Website</a>
                 </li>
-                
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="{{ route('dashboard') }}" class="nav-link">User Dashboard</a>
+                </li>
+
+
             </ul>
 
             <!-- Right navbar links -->
@@ -146,9 +152,7 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link "
-            
-            >
+            <a href="index3.html" class="brand-link ">
 
                 <img src="{{ asset('dist/img/pen.svg') }}" alt="AdminLTE Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -192,8 +196,12 @@
                         <li class="nav-item menu-open">
                             <a href="{{ route('admin.home') }}"
                                 class="nav-link  {{ request()->routeIs('admin.home') ? 'active' : '' }} ">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>
+                                <i class="bi bi-house-fill fa-2x"></i>
+                                <p
+                                    style="
+                                margin-left: 10px;
+                              
+                                ">
                                     Dashboard
 
                                 </p>
@@ -207,8 +215,12 @@
                         <li class="nav-item">
                             <a href="{{ route('categories.index') }}"
                                 class="nav-link  {{ request()->routeIs('categories.index') ? 'active' : '' }} ">
-                                <i class="bi bi-tags-fill"></i>
-                                <p>
+                                <i class="bi bi-tags-fill fa-2x"></i>
+                                <p
+                                    style="
+                                margin-left: 10px;
+                              
+                                ">
                                     Categories
                                 </p>
                             </a>
@@ -216,8 +228,12 @@
                         <li class="nav-item">
                             <a href="{{ route('posts.index') }}"
                                 class="nav-link  {{ request()->routeIs('posts.index') ? 'active' : '' }} ">
-                                <i class="bi bi-sticky-fill"></i>
-                                <p>
+                                <i class="bi bi-sticky-fill fa-2x"></i>
+                                <p
+                                    style="
+                                margin-left: 10px;
+                              
+                                ">
                                     Posts
                                 </p>
                             </a>
@@ -225,44 +241,84 @@
                         <li class="nav-item">
                             <a href="{{ route('messages.index') }}"
                                 class="nav-link  {{ request()->routeIs('messages.index') ? 'active' : '' }} ">
-                                <i class="bi bi-envelope-fill"></i>
-                                <p>
+                                <i class="bi bi-envelope-fill fa-2x"></i>
+                                <p
+                                    style="
+                                margin-left: 10px;
+                              
+                                ">
                                     Messages
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
+
+                            <a href="{{ route('admin.calender') }}"
+                                class="nav-link  {{ request()->routeIs('admin.calender') ? 'active' : '' }} ">
+                                <i class="bi bi-calendar-date-fill fa-2x"></i>
+                                <p
+                                    style="
+                                margin-left: 10px;
+                              
+                                ">
+                                    Calendar
+                                </p>
+                            </a>
+                        </li>
+                        </p>
+                        </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="bi bi-gear-fill"></i>
-                                <p>
+                                <i class="bi bi-gear-fill fa-2x"></i>
+                                <p
+                                    style="
+                                margin-left: 10px;
+                              
+                                ">
                                     Settings
-                                    <i class="fas fa-angle-left right"></i>
+                                    <i style="margin-top: 15px;" class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{ route('setting.navbar') }}" class="nav-link">
-                                        <i class="bi bi-segmented-nav"></i>
-                                        <p>Header</p>
+                                        <i class="bi bi-segmented-nav fa-2x"></i>
+                                        <p
+                                            style="
+                                        margin-left: 10px;
+                                      
+                                        ">
+                                            Header</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('setting.footer') }}" class="nav-link">
-                                        <i class="bi bi-code"></i>
-                                        <p>Footer</p>
+                                        <i class="bi bi-code fa-2x"></i>
+                                        <p
+                                            style="
+                                        margin-left: 10px;
+                                      
+                                        ">
+                                            Footer</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('setting.about') }}" class="nav-link">
-                                        <i class="bi bi-file-earmark-person"></i>
-                                        <p>About Page</p>
+                                        <i class="bi bi-file-earmark-person fa-2x"></i>
+                                        <p
+                                            style="
+                                        margin-left: 10px;
+                                      
+                                        ">
+                                            About Page</p>
                                     </a>
                                 </li>
                             </ul>
                         </li>
 
 
-                        
+
 
                     </ul>
                 </nav>
@@ -352,6 +408,140 @@
             });
         })
     </script>
+    <script src="{{ asset('plugins/moment/moment.min.js') }}"></script>
+    <script src="{{ asset('plugins/fullcalendar/main.js') }}"></script>
+    <script src="{{ asset('plugins/jquery-ui/jquery-ui.min.js') }}"></script>
+    <script>
+        $(function() {
+
+            /* initialize the external events
+             -----------------------------------------------------------------*/
+            function ini_events(ele) {
+                ele.each(function() {
+
+                    // create an Event Object (https://fullcalendar.io/docs/event-object)
+                    // it doesn't need to have a start or end
+                    var eventObject = {
+                        title: $.trim($(this).text()) // use the element's text as the event title
+                    }
+
+                    // store the Event Object in the DOM element so we can get to it later
+                    $(this).data('eventObject', eventObject)
+
+                    // make the event draggable using jQuery UI
+                    $(this).draggable({
+                        zIndex: 1070,
+                        revert: true, // will cause the event to go back to its
+                        revertDuration: 0 //  original position after the drag
+                    })
+
+                })
+            }
+
+            ini_events($('#external-events div.external-event'))
+
+            /* initialize the calendar
+             -----------------------------------------------------------------*/
+            //Date for the calendar events (dummy data)
+            var date = new Date()
+            var d = date.getDate(),
+                m = date.getMonth(),
+                y = date.getFullYear()
+
+            var Calendar = FullCalendar.Calendar;
+            var Draggable = FullCalendar.Draggable;
+
+            var containerEl = document.getElementById('external-events');
+            var checkbox = document.getElementById('drop-remove');
+            var calendarEl = document.getElementById('calendar');
+
+            // initialize the external events
+            // -----------------------------------------------------------------
+
+            new Draggable(containerEl, {
+                itemSelector: '.external-event',
+                eventData: function(eventEl) {
+                    return {
+                        title: eventEl.innerText,
+                        backgroundColor: window.getComputedStyle(eventEl, null).getPropertyValue(
+                            'background-color'),
+                        borderColor: window.getComputedStyle(eventEl, null).getPropertyValue(
+                            'background-color'),
+                        textColor: window.getComputedStyle(eventEl, null).getPropertyValue('color'),
+                    };
+                }
+            });
+
+            var calendar = new Calendar(calendarEl, {
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                },
+                themeSystem: 'bootstrap',
+                //Random default events
+                events: [{
+                        title: 'All Day Event',
+                        start: new Date(y, m, 1),
+                        backgroundColor: '#f56954', //red
+                        borderColor: '#f56954', //red
+                        allDay: true
+                    },
+
+                ],
+                editable: true,
+                droppable: true, // this allows things to be dropped onto the calendar !!!
+                drop: function(info) {
+                    // is the "remove after drop" checkbox checked?
+                    if (checkbox.checked) {
+                        // if so, remove the element from the "Draggable Events" list
+                        info.draggedEl.parentNode.removeChild(info.draggedEl);
+                    }
+                }
+            });
+
+            calendar.render();
+            // $('#calendar').fullCalendar()
+
+            /* ADDING EVENTS */
+            var currColor = '#3c8dbc' //Red by default
+            // Color chooser button
+            $('#color-chooser > li > a').click(function(e) {
+                e.preventDefault()
+                // Save color
+                currColor = $(this).css('color')
+                // Add color effect to button
+                $('#add-new-event').css({
+                    'background-color': currColor,
+                    'border-color': currColor
+                })
+            })
+            $('#add-new-event').click(function(e) {
+                e.preventDefault()
+                // Get value and make sure it is not null
+                var val = $('#new-event').val()
+                if (val.length == 0) {
+                    return
+                }
+
+                // Create events
+                var event = $('<div />')
+                event.css({
+                    'background-color': currColor,
+                    'border-color': currColor,
+                    'color': '#fff'
+                }).addClass('external-event')
+                event.text(val)
+                $('#external-events').prepend(event)
+
+                // Add draggable funtionality
+                ini_events(event)
+
+                // Remove event from text input
+                $('#new-event').val('')
+            })
+        })
+    </script>
 
 
     <!-- Bootstrap -->
@@ -364,6 +554,8 @@
     <script src="{{ asset('plugins/jquery-mapael/maps/usa_states.min.js') }}"></script>
     <!-- ChartJS -->
     <script src="{{ asset('plugins/chart.js/Chart.min.js') }}"></script>
+    <!-- fullCalendar 2.2.5 -->
+
 
 
 

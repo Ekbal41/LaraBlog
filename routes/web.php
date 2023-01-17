@@ -35,6 +35,7 @@ Route::middleware('auth', 'admin')->prefix('admin')->group(function () {
     Route::post('nnavbar', [App\Http\Controllers\Admin\SettingController::class, 'nnavbar'])->name('setting.nnavbar');
     Route::post('nfooter', [App\Http\Controllers\Admin\SettingController::class, 'nfooter'])->name('setting.nfooter');
     Route::post('nabout', [App\Http\Controllers\Admin\SettingController::class, 'nabout'])->name('setting.nabout');
+    Route::get('calender', [App\Http\Controllers\Admin\AdminController::class, 'calender'])->name('admin.calender');
 });
 
 Route::get('/dashboard', function () {

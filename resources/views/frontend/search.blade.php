@@ -45,7 +45,7 @@
                                     {{ $post->category->name }}
                                 </a>
 
-                                <time>{{ $post->created_at }}<time>
+                                <time>{{ $post->created_at->diffForHumans() }}<time>
                             </p>
                             <h1>
                                 <a href="{{ route('singlepost', $post->slug) }}">{{ $post->title }}</a>

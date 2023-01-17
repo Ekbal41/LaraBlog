@@ -12,7 +12,7 @@
                 updated
                 <time>
                     {{
-                    $post->created_at
+                    $post->created_at->diffForHumans()
                     }}
                 </time>
             </div>

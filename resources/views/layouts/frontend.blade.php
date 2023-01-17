@@ -59,14 +59,18 @@
                             href="{{ route('reso') }}">Resource</span></a></li>
                     <li class=" {{ request()->routeIs('design') ? 'active' : '' }}"><a
                             href="{{ route('design') }}">Inspiration</span></a></li>
+                    <!--if admin show admin link-->
+                    @if (Auth::user() && Auth::user()->is_admin == '1')
+                        <li class=" {{ request()->routeIs('admin') ? 'active' : '' }}"><a
+                                href="{{ route('admin.home') }}">Admin</span></a></li>
+                    @endif
                     <!--show logout option if user is logged in-->
                     @auth
                         <li class=" {{ request()->routeIs('dashboard') ? 'active' : '' }}"><a
                                 href="{{ route('dashboard') }}">Dashboard</span></a></li>
 
                         <li class=" {{ request()->routeIs('logout') ? 'active' : '' }}">
-                            <a
-                                href="{{ route('logout') }}">Logout</span></a>
+                            <a href="{{ route('logout') }}">Logout</span></a>
                         </li>
                     @endauth
                     <!--show login option if user is not logged in-->
@@ -77,11 +81,7 @@
                                 href="{{ route('register') }}">Register</span></a></li>
                     @endguest
 
-                    <!--if admin show admin link-->
-                    @if (Auth::user() && Auth::user()->is_admin == '1')
-                        <li class=" {{ request()->routeIs('admin') ? 'active' : '' }}"><a
-                                href="{{ route('admin.home') }}">Admin</span></a></li>
-                    @endif
+
                 </ul>
             </div><!-- end of /.navbar-collapse -->
         </div><!-- end of /.container -->
@@ -124,11 +124,16 @@
                         <!-- sidebar share button -->
                         <div class="share-widget hidden-xs hidden-sm " style="margin-top: 30px;">
                             <ul class="social-share text-center">
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="{{ App\Models\Footer::first()->twitter }}"><i
+                                            class="fa fa-twitter"></i></a></li>
+                                <li><a href="{{ App\Models\Footer::first()->facebook }}"><i
+                                            class="fa fa-facebook"></i></a>
+                                </li>
+                                <li><a href="{{ App\Models\Footer::first()->youtube }}"><i
+                                            class="fa fa-youtube"></i></a></li>
+                                <li><a href="{{ App\Models\Footer::first()->instagram }}"><i
+                                            class="fa fa-instagram"></i></a>
+                                </li>
                             </ul> <!-- /.sidebar-share-button -->
                         </div> <!-- /.share-widget -->
 
